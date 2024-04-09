@@ -1,0 +1,118 @@
+Obstacles -
+
+- I had some problems shifting from phase 1 to 2 as the specifications for the plotHorizontalLine and plotVerticalLine functions changed for the two so changing it for each phase was hard to spot.
+- In the beginning I had complicated the performCommands function a lot by using a lot of auxiliary functions, so I eventually scrapped my initial code and rewrote it using multiple layers of nested if statements.
+
+
+Basic design of program -
+
+plotLine function {
+	if (any of the invalid parameters are satisfied by the given input) {
+		returns false
+	}
+	else {
+		if (distance is negative) {
+			converts to positive distance
+			changes the starting position accordingly
+		}
+		
+		plots line in given direction using plotHorizontalLine or plotVerticalLine
+	}
+	returns true
+}
+
+performCommands function {
+	if (return 2 cases are satisfied) {
+		return 2
+	}
+
+	initialises the starting position 1,1
+	converts the string to lower case letters
+
+	boolean out_of_bounds is defined
+
+	iterating through the command string {
+		if (command is ‘c’) {
+			clear grid
+		}
+	
+		if (command is ‘f’) {
+			mode is FG
+			if (this is the last character in string) {
+				syntax error
+			}
+			else {
+				plotting character is set to next character
+			}
+		}
+		if (command is ‘b’) {
+			mode is BG
+			if (this is the last character in string) {
+				syntax error
+			}
+			else {
+				plotting character is set to next character
+			}
+		}
+		if (command is ‘h’) {
+			if (this is the last character in string) {
+				syntax error
+			}
+			finds the distance command associated with the ‘h’ plot
+			if (this distance is invalid) {
+				syntax error
+			}
+			else if (distance is plotting outside grid {
+				boolean out_of_bounds is set to true
+			}
+			else {
+				plots horizontal line
+			}
+		}
+		if (command is ‘v’) {
+			if (this is the last character in string) {
+				syntax error
+			}
+			finds the distance command associated with the ‘v’ plot
+			if (this distance is invalid) {
+				syntax error
+			}
+			else if (distance is plotting outside grid {
+				boolean out_of_bounds is set to true
+			}
+			else {
+				plots vertical line
+			}
+		}
+	}
+	if (out_of_bounds is true) {
+		plotting out of bounds error
+	}
+}
+
+
+Test data -
+
+Normal data
+1. H2 - h + single digit
+2. V2 - v + single digit
+3. H10 - h + double digit
+4. V10 - v + double digit
+5. H5h-5 - h + negative single digit
+6. V5v-5 - v + negative single digit
+7. H10h-10 - h + negative double digit
+8. V10v-10 - v + negative double digit
+9. fH - f + printable character
+10. Bh - b + printable character
+11. C - clearing
+
+Erroneous data
+1. Q4 - invalid command
+2. H - no distance
+3. h+25 - invalid distance
+4. C h-12 - space
+5. F#H+25H?V3! - left-most syntax error
+6. V86F - precedence of syntax error to plotting error
+7. H28V10H5V86 - plotting error
+
+		

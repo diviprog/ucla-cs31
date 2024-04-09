@@ -1,0 +1,164 @@
+Obstacles -
+
+- writing the getWordPortions functions since it used pointers (i did not end up using it in the end)
+- finding an appropriate length of the inputString
+- navigating the multiple conditions for rendering parameters
+- implement the return 1 functionality
+
+
+Test cases -
+Test Case 1: Basic Test
+Input File:
+"Hello World Example"
+Expected Output:
+Hello World
+Example
+Return Code: 0
+
+Test Case 2: Line Breaks and Punctuation
+Input File:
+"Hello World Example, this is a test for line breaks and punctuation. @P@ This is a new paragraph."
+Expected Output:
+Hello World
+Example, this is
+a test for line
+breaks and
+punctuation.
+
+This is a new
+paragraph.
+Return Code: 0
+
+Test Case 3: Long Word Portions
+Input File:
+"Supercalifragilisticexpialidocious is an incredibly long word that exceeds the line length limit."
+Expected Output:
+Supercalifragilisticex
+pialidocious is an
+incredibly long word
+that exceeds the line
+length limit.
+Return Code: 1
+
+Test Case 4: Empty Input
+Input File:
+""
+Expected Output:
+Return Code: 0
+
+Test Case 5: Negative Line Length
+Input File:
+"Hello World Example"
+Expected Output:
+Return Code: 2
+
+Test Case 6: Multiple Consecutive Spaces
+Input File:
+"Hello   World     Example"
+Expected Output:
+Hello World
+Example
+Return Code: 0
+
+Test Case 7: Words Ending with Punctuation
+Input File:
+"Hello, World! This is a test."
+Expected Output:
+Hello, World!
+This is a test.
+Return Code: 0
+
+Test Case 8: Paragraph Breaks with Empty Line
+Input File:
+"Hello @P@ World @P@ Example"
+Expected Output:
+Hello
+
+World
+
+Example
+Return Code: 0
+
+Test Case 9: Multiple Paragraph Breaks
+Input File:
+"Hello @P@ World @P@ Example @P@"
+Expected Output:
+Hello
+
+World
+
+Example
+Return Code: 0
+
+Test Case 10: Special Characters in Words
+Input File:
+"Hello! @P@ World-Example @P@ Special-Word."
+Expected Output:
+Hello!
+World-
+Example
+
+Special-
+Word.
+Return Code: 0
+
+Test cases for which my function does give the appropriate output -
+- if there is a word which ends with a hyphen
+
+
+Pseudocode -
+
+getWords (inputString) {
+
+	iterates through the inputString {
+		when character is not a space {
+			add the character to a temporary placeholder word
+		}
+		when character is a space {
+			add the placeholder word to a 2d c string
+			reset placeholder
+		}
+	}
+	terminate the last word
+}
+
+render (lineLength, inf, outf) {
+	text[10000]
+	adds the input data character by character into the text string
+	terminates the string
+
+	iterates through the text to process it {
+		adds a space if the word length is larger than the max lineLength
+		adds all other characters to the processed text
+		removes multiple continuous spaces
+		tracks the current word length and finds the maximum word length
+		adds a space after every hyphen
+	}
+
+	iterates through processedText {
+		counts number of spaces
+		counts number of hyphens
+	}
+
+	obtains each individual word by sending processedtext to getWords
+
+	iterates through words {
+		counts how many paragraph breaks are there
+		checks whether the return 1 conditions are satisfied
+	}
+
+	iterates through words {
+		renders the parabreak
+		checks if the next word can fit on the line {
+			renders space
+		}
+		otherwise {
+			goes to next line
+		}
+		checks if last character was punctuation {
+			adds extra space
+		}
+		renders the next word
+	}
+	renders newline
+}

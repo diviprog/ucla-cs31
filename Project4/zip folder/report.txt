@@ -1,0 +1,55 @@
+Obstacles -
+
+The only major obstacle I had in the implementation of this assignment was how to implement the divide method without making additional arrays.
+
+
+
+Test cases -
+
+reduplicate method -
+{ "mahi", "bon", "cous", "", "tar", "mur" }, 6 --> normal
+{ "mahi", "bon", "cous", "", "tar", "mur" }, -1 --> erroneous
+
+locate method -
+{ "donald", "asa", "ron", "vivek", "chris", "nikki" }, 6, vivek --> normal
+{ "donald", "asa", "ron", "vivek", "chris", "nikki" }, 2, vivek --> erroneous
+{ "donald", "asa", "ron", "vivek", "chris", "nikki" }, 6, tim --> erroneous
+{ "donald", "asa", "ron", "vivek", "chris", "nikki" }, 6, Vivek --> erroneous
+{ "donald", "asa", "ron", "vivek", "chris", "nikki" }, -1, tim --> erroneous
+
+locationOfMax method -
+{ "donald", "asa", "ron", "vivek", "chris", "nikki" }, 3 --> normal
+{ "donald", "asa", "ron", "vivek", "chris", "nikki" }, -1 --> erroneous
+
+circleLeft method -
+{ "nikki", "donald", "asa", "tim", "ron" }, 5, 1 --> normal
+{ "nikki", "donald", "asa", "tim", "ron" }, -1, 1 --> erroneous
+
+enumerateRuns method -
+{ "chris", "doug", "tim", "tim", "vivek", "vivek", "vivek", "tim", "tim" }, 9 --> normal
+{ "chris", "doug", "tim", "tim", "vivek", "vivek", "vivek", "tim", "tim" }, -1 --> erroneous
+
+flip method -
+{ "donald", "tim", "", "chris", "nikki", "donald" }, 4 --> normal
+{ "donald", "tim", "", "chris", "nikki", "donald" }, 6 --> normal
+{ "donald", "tim", "", "chris", "nikki", "donald" }, -1 --> erroneous
+
+locateDifference method -
+{ "donald", "tim", "", "chris", "nikki", "donald" }, 6, { "donald", "tim", "donald", "", "chris" }, 5 --> normal
+{ "donald", "tim", "", "chris", "nikki", "donald" }, 2, { "donald", "tim", "donald", "", "chris" }, 1 --> normal
+{ "donald", "tim", "", "chris", "nikki", "donald" }, -1, { "donald", "tim", "donald", "", "chris" }, -1 --> erroneous
+
+subsequence method -
+{ "nikki", "ron", "tim", "vivek", "doug" }, 5, { "ron", "tim", "vivek" }, 3 --> normal
+{ "nikki", "ron", "tim", "vivek", "doug" }, 4, { "nikki", "vivek" }, 2 --> erroneous
+{ "nikki", "ron", "tim", "vivek", "doug" }, -1, { "nikki", "vivek" }, -1 --> erroneous
+
+locateAny method -
+{ "nikki", "ron", "tim", "vivek", "doug" }, 6, { "donald", "doug", "vivek", "ron" }, 4 --> normal
+{ "nikki", "ron", "tim", "vivek", "doug" }, 6, { "chris", "asa" }, 2 --> erroneous
+{ "nikki", "ron", "tim", "vivek", "doug" }, -1, { "chris", "asa" }, -1 --> erroneous
+
+divide method -
+{ "donald", "asa", "ron", "vivek", "chris", "nikki" }, 6, doug --> normal
+{ "ron", "vivek", "asa", "tim" }, 4, tim --> normal
+{ "ron", "vivek", "asa", "tim" }, -1, tim --> erroneous
