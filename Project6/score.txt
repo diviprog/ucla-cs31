@@ -1,0 +1,4 @@
+Your score on Project 6 is 23 out of 25 (which is how the grader
+scored the project; we'll scale that to 92 out of 100).
+We graded problems 1b, 1c, 1d, 1e, 2, and 5.  (Remember, the
+syllabus said we won't grade every problem of every homework.)
