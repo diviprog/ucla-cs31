@@ -1,0 +1,6 @@
+Total: 75/100
+
+Correctness: 55/85
+Helpful comments in the code:  5 out of 5.
+Understandable design documentation:  5 out of 5.
+Completeness of test case coverage:  5 out of 5.
